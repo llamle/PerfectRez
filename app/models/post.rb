@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-  belongs_to :username
-  belongs_to :keyword
+  belongs_to :user
+  has_many :keywords
 end

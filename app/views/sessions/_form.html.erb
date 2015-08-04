@@ -1,0 +1,25 @@
+<form action="<%= session_path %>" method="post">
+
+  <input type="hidden"
+         name="authenticity_token"
+
+       value="<%= form_authenticity_token %>">
+
+  <div class="input-field">
+    <label for="username">Username</label>
+    <input type="text"
+           id="un"
+           name="user[username]">
+  </div>
+
+  <div class="input-field">
+    <label for="password">Password</label>
+    <input type="password"
+           id="pw"
+           name="user[password]">
+  </div>
+
+  <div class="actions">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </div>
+</form>
