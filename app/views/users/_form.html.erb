@@ -1,51 +1,41 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<form class="" action="<%= users_path %>" method="post">
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <input type="hidden" name="authenticy_token" value="<%= form_authenticity_token %>">
-  <%= f.hidden_field :role, :value => "user"  %>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+  <div class="userAuth">
+    <input type="hidden" name="authenticy_token" value="<%= form_authenticity_token %>">
+    <input value="user" type="hidden" name="user[role]" id="user_role">
   </div>
   <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <label for="user_username">Username</label><br>
+    <input type="text" name="user[username]" id="user_username">
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <label for="user_first_name">First name</label><br>
+    <input type="text" name="user[first_name]" id="user_first_name">
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <label for="user_last_name">Last name</label><br>
+    <input type="text" name="user[last_name]" id="user_last_name">
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <label for="user_email">Email</label><br>
+    <input type="email" name="user[email]" id="user_email">
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.text_field :password_confirmation %>
+    <label for="user_password">Password</label><br>
+    <input type="password" name="user[password]" id="user_password">
+  </div>
+  <div class="field">
+    <label for="user_password_confirmation">Password Confirmation</label><br>
+    <input type="password" name="user[password_confirmation]" id="user_password_confirmation">
   </div>
   <div class="field">
     <input type="hidden" name="user[session_id]" id="user_session_id" value="<%= session.id %>">
   </div>
   <div class="field">
-    <%= f.label :email_token %><br>
-    <%= f.text_field :email_token %>
+    <label for="user_email_token">Email token</label><br>
+    <input type="text" name="user[email_token]" id="user_email_token">
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" name="commit" value="Create User">
   </div>
-<% end %>
+</form>

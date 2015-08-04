@@ -1,6 +1,6 @@
 <form action="<%= session_path %>" method="post">
 
-  <h2>Sign up to Perfect Rez</h2>
+  <h2>Sign in to PerfectRez</h2>
 
   <input type="hidden"
          name="authenticity_token"
@@ -18,13 +18,9 @@
            name="user[password]">
   </div>
 
-  <div class="input-field">
-    <label for="password-confirmation">Password Confirmation</label>
-    <input type="password"
-           name="user[password_confirmation]">
-  </div>
-
   <div class="actions">
     <button class="" type="submit" name="action">Submit</button>
   </div>
 </form>
+
+<a href="<%= new_user_path %>">Sign Up!</a>

@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  get 'static/welcome'
+
+  root 'static#welcome' 
+
+  # get 'sessions/new'
+
   resources :keywords
   resources :posts
   resources :users
+
+  resource :session, only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
