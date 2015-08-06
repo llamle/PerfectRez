@@ -9,23 +9,28 @@
   <div class="input-field">
     <label for="username">Username</label>
     <input type="text"
+           class="materialize-textarea"
            name="user[username]">
   </div>
 
   <div class="input-field">
     <label for="password">Password</label>
     <input type="password"
+           class="materialize-textarea"
            name="user[password]">
   </div>
 
   <div class="input-field">
     <label for="password-confirmation">Password Confirmation</label>
     <input type="password"
+           class="materialize-textarea"
            name="user[password_confirmation]">
   </div>
 
   <div class="actions">
-    <button class="" type="submit" name="action">Submit</button>
+    <button class="btn waves-effect waves-light makeBlue" type="submit" name="commit" value="Create User">Submit
+      <i class="fa fa-paper-plane"></i>
+    </button>
   </div>
 </form>
 

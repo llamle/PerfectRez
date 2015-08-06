@@ -44,7 +44,7 @@ Rails.application.configure do
    :user_name            => ENV['perfectrez'],
    :password             => ENV['perfectpass'],
    :authentication       => "plain",
-  :enable_starttls_auto => true
+   :enable_starttls_auto => true
   }
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb

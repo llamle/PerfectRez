@@ -5,36 +5,38 @@
   </div>
   <div class="field">
     <label for="user_username">Username</label><br>
-    <input type="text" name="user[username]" id="user_username">
+    <input type="text" class="materialize-textarea" name="user[username]" id="user_username">
   </div>
   <div class="field">
     <label for="user_first_name">First name</label><br>
-    <input type="text" name="user[first_name]" id="user_first_name">
+    <input type="text" class="materialize-textarea" name="user[first_name]" id="user_first_name">
   </div>
   <div class="field">
     <label for="user_last_name">Last name</label><br>
-    <input type="text" name="user[last_name]" id="user_last_name">
+    <input type="text" class="materialize-textarea" name="user[last_name]" id="user_last_name">
   </div>
   <div class="field">
     <label for="user_email">Email</label><br>
-    <input type="email" name="user[email]" id="user_email">
+    <input type="email" class="materialize-textarea" name="user[email]" id="user_email">
   </div>
   <div class="field">
     <label for="user_password">Password</label><br>
-    <input type="password" name="user[password]" id="user_password">
+    <input type="password" class="materialize-textarea" name="user[password]" id="user_password">
   </div>
   <div class="field">
     <label for="user_password_confirmation">Password Confirmation</label><br>
-    <input type="password" name="user[password_confirmation]" id="user_password_confirmation">
+    <input type="password" class="materialize-textarea" name="user[password_confirmation]" id="user_password_confirmation">
   </div>
   <div class="field">
-    <input type="hidden" name="user[session_id]" id="user_session_id" value="<%= session.id %>">
+    <input type="hidden" class="materialize-textarea" name="user[session_id]" id="user_session_id" value="<%= session.id %>">
   </div>
   <div class="field">
     <label for="user_email_token">Email token</label><br>
-    <input type="text" name="user[email_token]" id="user_email_token">
+    <input type="text" class="materialize-textarea" name="user[email_token]" id="user_email_token">
   </div>
   <div class="actions">
-    <input type="submit" name="commit" value="Create User">
+    <button class="btn waves-effect waves-light makeBlue" type="submit" name="commit" value="Create User">Submit
+      <i class="fa fa-paper-plane"></i>
+    </button>
   </div>
 </form>

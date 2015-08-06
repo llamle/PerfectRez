@@ -43,6 +43,10 @@
      -webkit-box-shadow:none !important;
  }
 
+ .makeBlue {
+   background-color: #2196F3;
+ }
+
  .text_h {
      padding: 15% 0;
      font-size: 6.0em;
@@ -279,6 +283,15 @@
 
  .card-avatar .card-content .card-title {
      line-height: 30px !important;
+ }
+
+.card-text {
+   height: 331px;
+ }
+
+.pad {
+   padding-left: 3%;
+   padding-right: 3%;
  }
 
  .parallax-container {

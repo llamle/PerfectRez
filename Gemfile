@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails-footnotes', '~> 4.0'
 gem 'annotate'
+gem 'filterrific'
 
 gem 'materialize-sass'
 gem 'font-awesome-sass'
