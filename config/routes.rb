@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'static/welcome'
 
-  root 'static#welcome' 
+  root 'static#welcome'
 
   # get 'sessions/new'
 

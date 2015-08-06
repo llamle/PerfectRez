@@ -1,12 +1,68 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>PerfectRez</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="theme-color" content="#2196F3">
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag :modernizr %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
 </head>
-<body>
+
+<body id="top" class="scrollspy">
+
+  <!-- Pre Loader -->
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+
+  </div>
+
+  <!--Navigation-->
+  <div class="navbar-fixed">
+     <nav id="nav_f" class="default_color" role="navigation">
+         <div class="container">
+           <div class="nav-wrapper"><a id="logo-container" href="#top" class="brand-logo">PerfectRez</a>
+             <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+             <ul id="nav-mobile" class="right hide-on-med-and-down">
+               <li><a href="/">Home</a></li>
+               <li><a href="/#about">About</a></li>
+               <li><a href="#team">Sign Up</a></li>
+               <li><a href="#contact">Log In</a></li>
+             </ul>
+             <ul class="side-nav" id="mobile-nav">
+               <li><a href="sass.html">Sass</a></li>
+               <li><a href="badges.html">Components</a></li>
+               <li><a href="collapsible.html">Javascript</a></li>
+               <li><a href="mobile.html">Mobile</a></li>
+             </ul>
+           </div>
+         </div>
+     </nav>
+ </div>
+
+
+
+
+<!-- Log In Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#login">Log in</a></li>
+          </ul>
+          <br/>
+        </div>
+        <div id="login" class="col s12"><%= render 'sessions/form' %></div>
+      </div>
+    </div>
+  </div>
 
 <% if flash[:message] %>
   <div class="message" style="background: lightpink;">
