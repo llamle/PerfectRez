@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    # @user = current_user
+    @users = User.includes(:posts).find(params[:id])
   end
 
   # GET /users/new
@@ -34,6 +36,7 @@ class UsersController < ApplicationController
 
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+        login!(@user)
       else
         flash[:message] = @user.errors.full_messages.to_sentence
         format.html { render :new }
@@ -49,6 +52,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
+        login!(@user)
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }

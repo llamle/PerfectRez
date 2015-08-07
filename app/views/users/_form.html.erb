@@ -31,8 +31,7 @@
     <input type="hidden" class="materialize-textarea" name="user[session_id]" id="user_session_id" value="<%= session.id %>">
   </div>
   <div class="field">
-    <label for="user_email_token">Email token</label><br>
-    <input type="text" class="materialize-textarea" name="user[email_token]" id="user_email_token">
+    <input type="hidden" class="materialize-textarea" name="user[email_token]" id="user_email_token" value="<%= SecureRandom.uuid %>">
   </div>
   <div class="actions">
     <button class="btn waves-effect waves-light makeBlue" type="submit" name="commit" value="Create User">Submit

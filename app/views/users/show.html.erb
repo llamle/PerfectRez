@@ -1,4 +1,63 @@
-<p id="notice"><%= notice %></p>
+<!--Intro and service-->
+<div id="about" class="section scrollspy">
+  <br>
+    <div class="container">
+        <div class="row">
+            <div  class="col s5">
+                <h5 class="header text_h2_zero"> <span class="span_h2">Welcome Back <%= @user.first_name %>!</span></h5>
+            </div>
+
+            <div class="col s1">
+              <p></p>
+            </div>
+
+            <div class="col s5">
+              <div class="row">
+                <form ng-submit="prCtrl.formAction()">
+                  <input type="text" placeholder="Search for something" ng-model="prCtrl.formData"/>
+                  <button class="btn waves-effect waves-light makeBlue" type="submit" name="commit" value="Submit Form Data">
+                    <i class="fa fa-search"></i>
+                  </button>
+              </div>
+
+                  <!-- <h6>Searching for: <span ng-bind="prCtrl.formData"></span></h6> -->
+                </form>
+            </div>
+
+            <div class="col s12 m6 l6">
+              <h5 class="header text_h2_zero">Here are your current posts:</h5>
+            </div>
+
+            <div class="col s12 m4 l4">
+              <h5 class="header text_h2_zero"><span class="span_h2">Here are your relevent posts:</span></h5>
+            </div>
+
+            <div  class="col s12 m6 l6">
+                <div class="promo promo-example">
+
+                  <% @users.posts do |post| %>
+                    <li><h6 class="promo-caption"><% posts.post %></h6></li>
+                  <% end %>
+
+
+                    <p class="light">|</p>
+                    <% @post = Post.new %>
+                    <%= render 'posts/form' %>
+                </div>
+            </div>
+
+            <div class="col s12 m4 l4">
+                <div class="promo promo-example">
+                    <h5 class="promo-caption">|</h5>
+                    <p class="light">|</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <p id="notice"><%= notice %></p>
 
 <p>
   <strong>User:</strong>
@@ -36,4 +95,4 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> -->

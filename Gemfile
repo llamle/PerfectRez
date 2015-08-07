@@ -32,8 +32,11 @@ gem 'filterrific'
 gem 'materialize-sass'
 gem 'font-awesome-sass'
 gem 'modernizr-rails'
+gem 'angularjs-rails'
 
 gem 'figaro'
+gem 'griddler'
+gem 'griddler-sendgrid'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
