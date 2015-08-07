@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div  class="col s5">
-                <h5 class="header text_h2_zero"> <span class="span_h2">Welcome Back <%= @user.first_name %>!</span></h5>
+                <h4 class="header text_h2_zero"> <span class="span_h2">Welcome Back <%= @user.first_name %>!</span></h4>
             </div>
 
             <div class="col s1">
@@ -13,9 +13,9 @@
 
             <div class="col s5">
               <div class="row">
-                <form ng-submit="prCtrl.formAction()">
-                  <input type="text" placeholder="Search for something" ng-model="prCtrl.formData"/>
-                  <button class="btn waves-effect waves-light makeBlue" type="submit" name="commit" value="Submit Form Data">
+                <form>
+                  <input type="text" class="user_search_bar" placeholder="Search for something"/>
+                  <button class="btn waves-effect waves-light makeBlue user_search_btn" type="submit" name="commit" value="Submit Form Data">
                     <i class="fa fa-search"></i>
                   </button>
               </div>
@@ -35,14 +35,13 @@
             <div  class="col s12 m6 l6">
                 <div class="promo promo-example">
 
-                  <% @users.posts do |post| %>
-                    <li><h6 class="promo-caption"><% posts.post %></h6></li>
+                  <% @post = Post.new %>
+                  <%= render 'posts/form' %>
+                  <br>
+                  <% @users.posts.each do |post| %>
+                    <li><h6 class="promo-caption"><%= post.post %></h6></li>
                   <% end %>
 
-
-                    <p class="light">|</p>
-                    <% @post = Post.new %>
-                    <%= render 'posts/form' %>
                 </div>
             </div>
 

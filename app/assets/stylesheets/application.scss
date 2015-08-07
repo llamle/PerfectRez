@@ -47,6 +47,16 @@
    background-color: #2196F3;
  }
 
+ .user_search_bar {
+   width: calc(100% - 100px) !important;
+ }
+
+ .user_search_btn {
+   float: left;
+   margin-top: 11px;
+   margin-right: 11px;
+ }
+
  .text_h {
      padding: 15% 0;
      font-size: 6.0em;
