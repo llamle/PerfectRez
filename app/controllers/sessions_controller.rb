@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
         login!(@user)
       else
         flash[:message] = "Username or Password error."
-        redirect_to new_user_path
+        redirect_to '/'
       end
     end
 
   def destroy
     logout!
-    redirect_to new_user_path
+    redirect_to '/'
   end
 
 private

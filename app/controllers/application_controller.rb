@@ -33,7 +33,7 @@ private
     # Requires a user to be logged in to view portions of the site, prevents jumping via url
     unless current_user
       flash[:message] = "You must be signed in to do that!"
-      redirect_to new_user_path
+      redirect_to '/'
     end
   end
 

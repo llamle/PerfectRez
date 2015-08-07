@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         login!(@user)
       else
         flash[:message] = @user.errors.full_messages.to_sentence
-        format.html { render :new }
+        format.html { redirect_to '/' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
