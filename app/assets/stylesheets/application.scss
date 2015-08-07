@@ -47,8 +47,13 @@
    background-color: #2196F3;
  }
 
+ .btnsze {
+   font-size: 1.3rem !important;
+   color: white !important;
+ }
+
  .user_search_bar {
-   width: calc(100% - 100px) !important;
+   width: calc(90% - 100px) !important;
  }
 
  .user_search_btn {
@@ -56,6 +61,20 @@
    margin-top: 11px;
    margin-right: 11px;
  }
+
+ .user_search_btn_right {
+   float: right;
+   margin-top: 11px;
+   margin-right: 56px;
+ }
+
+.postList {
+  list-style: none;
+}
+
+.hPad {
+  padding-left: 1%;
+}
 
  .text_h {
      padding: 15% 0;
@@ -88,7 +107,6 @@
  .text_h2 {font-weight: 100;margin-bottom: 4%; line-height: 4.5rem;}
 
  .text_h2_zero {font-weight: 100;margin-bottom: 0%; margin-top: 0%; line-height: 4.5rem;}
-
 
  .span_h2 {font-weight: 300;color: #2196F3;}
 
