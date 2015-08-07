@@ -19,7 +19,7 @@
                       <% @post = Post.new %>
                       <%= render 'posts/form' %>
                       <br>
-                      <% @users.posts.each do |post| %>
+                      <% @users.posts.reverse.each do |post| %>
                         <li class="postList"><h6 class="promo-caption"><%= post.post %></h6></li>
                       <% end %>
 
