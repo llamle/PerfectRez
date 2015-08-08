@@ -5,9 +5,10 @@
         <div class="row">
           <div class="row">
             <div  class="col s12">
-                <h4 class="header hPad text_h2_zero"> <span class="span_h2">Welcome Back <%= @user.first_name %>!</span></h4>
+              <h4 class="header hPad text_h2_zero user_header_reduce"><span class="span_h2">Welcome Back <%= @user.first_name %>!</span></h4>
+              <!-- Modal Trigger -->
+              <a class="waves-effect waves-light btn modal-trigger user_settings_btn blue" href="#modal3">Settings</a>
             </div>
-
 
             </div>
             <div class="row">
@@ -33,7 +34,7 @@
 
                   <form>
                     <input type="text" class="user_search_bar" placeholder="Search for something"/>
-                    <button class="btn waves-effect waves-light makeBlue user_search_btn_right" type="submit" name="commit" value="Submit Form Data">
+                    <button class="btn waves-effect waves-light blue user_search_btn_right" type="submit" name="commit" value="Submit Form Data">
                       <i class="fa fa-search btnsze"></i>
                     </button>
                   </form>
@@ -48,6 +49,47 @@
         </div>
     </div>
 </div>
+
+
+
+<!--User Settings Modal-->
+
+  <!-- Modal Structure -->
+  <div id="modal3" class="modal">
+  <div class="modal-content">
+    <h4 class="center"><span class="span_h2">User Settings</span></h4>
+    <p>
+      <form class="" action="<%= users_path %>" method="post">
+        <div class="userAuth">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input value="user" type="hidden" name="user[role]" id="user_role">
+        </div>
+
+          <div class="field col s12 m6 l6 noPadRight">
+            <input type="text" class="materialize-textarea" name="user[first_name]" id="user_first_name" placeholder="<%= @user.first_name %>">
+          </div>
+
+        <div class="field">
+          <input type="email" class="materialize-textarea" name="user[email]" id="user_email" placeholder="<%= @user.email %>">
+        </div>
+        <div class="field">
+          <input type="password" class="materialize-textarea" name="user[password]" id="user_password" placeholder="Password:">
+        </div>
+        <div class="field">
+          <input type="password" class="materialize-textarea" name="user[password_confirmation]" id="user_password_confirmation" placeholder="Please Confirm your password:">
+        </div>
+        <div class="actions">
+          <button class="btn waves-effect waves-light blue rightFloat" type="submit" name="commit" value="Create User">Submit
+            <i class="fa fa-check"></i>
+          </button>
+        </div>
+      </form>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+  </div>
 
 
 <!-- <p id="notice"><%= notice %></p>

@@ -36,6 +36,7 @@ gem 'angularjs-rails'
 gem 'figaro'
 gem 'griddler'
 gem 'griddler-sendgrid'
+gem 'twilio-ruby'
 
 gem 'rails_12factor', group: :production
 

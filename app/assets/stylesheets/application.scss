@@ -52,8 +52,28 @@
    color: white !important;
  }
 
+.rightFloat {
+  float: right;
+}
+
+.noPadRight {
+  padding-right: 0% !important;
+}
+
+.noPadLeft {
+  padding-left: 0% !important;
+}
+
  .user_search_bar {
    width: calc(90% - 100px) !important;
+ }
+
+ .user_header_reduce {
+   width: calc(100% - 135px) !important;
+ }
+
+ .user_settings_btn {
+   float: right;
  }
 
  .user_search_btn {
