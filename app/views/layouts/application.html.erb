@@ -33,6 +33,7 @@
                <li><a href="/">Home</a></li>
                <li><a href="/#about">About</a></li>
                <% unless current_user == nil %>
+               <li><%= link_to(current_user.username, user_path(current_user.id)) %></li>
                <li><%= link_to('Logout', session_path, :method => :delete) %></li>
                   <% end %>
                <% unless current_user %>
@@ -44,6 +45,7 @@
                <li><a href="/">Home</a></li>
                <li><a href="/#about">About</a></li>
                <% unless current_user == nil %>
+               <li><%= link_to(current_user.username, user_path(current_user.id)) %></li>
                <li><%= link_to('Logout', session_path, :method => :delete) %></li>
                   <% end %>
                <% unless current_user %>
