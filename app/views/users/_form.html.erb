@@ -4,10 +4,10 @@
     <input value="user" type="hidden" name="user[role]" id="user_role">
   </div>
 
-    <div class="field col s12 m6 l6 noPadLeft">
+    <div class="input-field col s12 m6 l6 noPadLeft">
       <input type="text" class="materialize-textarea" name="user[username]" id="user_username" placeholder="Username:">
     </div>
-    <div class="field col s12 m6 l6 noPadRight">
+    <div class="input-field col s12 m6 l6 noPadRight">
       <input type="text" class="materialize-textarea" name="user[first_name]" id="user_first_name" placeholder="First Name:">
     </div>
 
@@ -16,19 +16,19 @@
     <input type="text" class="materialize-textarea" name="user[last_name]" id="user_last_name" placeholder="Last Name">
   </div> -->
 
-  <div class="field">
+  <div class="input-field">
     <input type="email" class="materialize-textarea" name="user[email]" id="user_email" placeholder="Email Address:">
   </div>
-  <div class="field">
+  <div class="input-field">
     <input type="password" class="materialize-textarea" name="user[password]" id="user_password" placeholder="Password:">
   </div>
-  <div class="field">
+  <div class="input-field">
     <input type="password" class="materialize-textarea" name="user[password_confirmation]" id="user_password_confirmation" placeholder="Please Confirm your password:">
   </div>
-  <div class="field">
+  <div class="input-field">
     <input type="hidden" class="materialize-textarea" name="user[session_id]" id="user_session_id" value="<%= session.id %>">
   </div>
-  <div class="field">
+  <div class="input-field">
     <input type="hidden" class="materialize-textarea" name="user[email_token]" id="user_email_token" value="<%= SecureRandom.uuid %>">
   </div>
   <div class="actions">
@@ -38,4 +38,4 @@
   </div>
 </form>
 
-<a class="btn waves-effect waves-light blue modal-trigger" href="#modal1">Log in!</a>
+<!-- <a class="btn waves-effect waves-light blue modal-trigger" href="#modal1">Log in!</a> -->

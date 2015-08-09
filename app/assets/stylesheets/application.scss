@@ -352,3 +352,16 @@
  footer.page-footer {
      margin-top: 0px !important;
  }
+
+ ::-webkit-input-placeholder {
+   padding-left: 3%;
+ }
+ ::-moz-placeholder { /* Firefox 19+ */
+   padding-left: 3%;
+ }
+ :-ms-input-placeholder {
+   padding-left: 3%;
+ }
+ :-moz-placeholder { /* Firefox 18- */
+   padding-left: 3%;
+ }
