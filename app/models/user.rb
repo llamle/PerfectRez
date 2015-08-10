@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
 
   validates :first_name, presence: true, length: { maximum: 20 }
-  validates :last_name, presence: true, length: { maximum: 20 }
   validates :username, presence: true, uniqueness: true
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -14,6 +13,8 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 5, maximum: 20 }, allow_nil: true
   validates :password_digest, presence: true
+  validates :phone_number, uniqueness: true
+
 
   after_validation { self.errors.messages.delete(:password_digest) }
 

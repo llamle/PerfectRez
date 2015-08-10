@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
           @message = @client.account.messages.create({:to => @user.phone_number,
                                              :from => "+19177465165",
-                                             :body => "Hi, "+ @user.first_name +". Thank you for signing up for text updates. To add information to your list simply reply to this text."})
+                                             :body => "Thank you for signing up for text updates. To add information to your list simply reply to this text."})
         end
 
 
