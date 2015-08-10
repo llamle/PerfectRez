@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  
+
   skip_before_filter  :verify_authenticity_token
   protect_from_forgery except: :create
 
@@ -28,20 +28,19 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     if params['from']
-      account_sid = ENV['twilio_account_sid']
-      auth_token  = ENV['twilio_auth_token']
+      @user = User.find_by(phone_number: twilio_post_params['from'])
 
-      @client = Twilio::REST::Client.new account_sid, auth_token
+      if @user
+        @post = @user.posts.new(post: twilio_post_params['body'])
 
-      @client.account.messages.list.each do |message|
-        if current_user.phone_number == twilio_post_params['from']
-          @post = Post.new(post: twilio_post_params['body'])
+        if @post.save
+          account_sid = ENV['twilio_account_sid']
+          auth_token  = ENV['twilio_auth_token']
 
-          if @post.save
-            @message = @client.account.messages.create({:to => current_user.phone_number,
-                                     :from => "+19177465165",
-                                     :body => "Thank you! We've added your post to the database."})
-          end
+          @client = Twilio::REST::Client.new account_sid, auth_token
+          @message = @client.account.messages.create({:to => current_user.phone_number,
+                                   :from => "+19177465165",
+                                   :body => "Thank you! We've added your post to the database."})
         end
       end
 
@@ -61,6 +60,11 @@ class PostsController < ApplicationController
     end
 
   end
+
+  # skip_before_filter :verify_authenticity_token, only: :create_from_twilio
+  # protect_from_forgery except: :create_from_twilio
+  # def create_from_twilio
+  # end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -98,6 +102,6 @@ class PostsController < ApplicationController
     end
 
     def twilio_post_params
-      params.permit(:body, :from, :post)
+      params.permit(:body, :from)
     end
 end
