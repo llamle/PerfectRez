@@ -97,6 +97,6 @@ class PostsController < ApplicationController
     end
 
     def twilio_post_params
-      params.permit(:body, :from)
+      params.permit(:body, :from, :post)
     end
 end
