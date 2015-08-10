@@ -39,6 +39,7 @@ gem 'griddler-sendgrid'
 gem 'twilio-ruby'
 
 gem 'rails_12factor', group: :production
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use Unicorn as the app server
 # gem 'unicorn'

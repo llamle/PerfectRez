@@ -34,6 +34,19 @@ class UsersController < ApplicationController
         # Sends email to user when user is created.
         UserMailer.welcome_email(@user).deliver_now
 
+        # Sends text message to user when phone number is added to account.
+        unless @user.phone_number.nil?
+          account_sid = ENV['twilio_account_sid']
+          auth_token  = ENV['twilio_auth_token']
+
+          @client = Twilio::REST::Client.new account_sid, auth_token
+
+          @message = @client.account.messages.create({:to => @user.phone_number,
+                                             :from => "+19177465165",
+                                             :body => "Hi, "+ @user.username +". Thank you for signing up for text updates. To add information to your list simply reply to this text."})
+        end
+
+
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
         login!(@user)

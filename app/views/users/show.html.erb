@@ -73,12 +73,17 @@
           <div class="field">
             <input type="email" class="materialize-textarea" name="user[email]" id="user_email" placeholder="<%= @user.email %>">
           </div>
+
           <div class="field">
+            <input type="tel" class="materialize-textarea" name="user[phone_number]" id="user_phone_number" placeholder="To text information to the server, please add your phone number">
+          </div>
+
+          <!-- <div class="field">
             <input type="password" class="materialize-textarea" name="user[password]" id="user_password" placeholder="Password:">
           </div>
           <div class="field">
             <input type="password" class="materialize-textarea" name="user[password_confirmation]" id="user_password_confirmation" placeholder="Please Confirm your password:">
-          </div>
+          </div> -->
           <div class="actions">
             <button class="btn waves-effect waves-light blue rightFloat" type="submit" name="commit" value="Create User">Submit
               <i class="fa fa-check"></i>

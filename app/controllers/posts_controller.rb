@@ -26,6 +26,21 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+    account_sid = ENV['twilio_account_sid']
+    auth_token  = ENV['twilio_auth_token']
+
+    @client = Twilio::REST::Client.new account_sid, auth_token
+
+    @client.account.messages.list.each do |message|
+      if message.from = @user.phone_number
+        @post = message.body
+        if @post.save
+          @message = @client.account.messages.create({:to => @user.phone_number,
+                                   :from => "+19177465165",
+                                   :body => "Thank you! We've added your post to the database."})
+        end
+      end
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to :back, notice: 'Post was successfully created.' }
