@@ -24,38 +24,39 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    puts params
+    if params['from']
+      account_sid = ENV['twilio_account_sid']
+      auth_token  = ENV['twilio_auth_token']
 
-    @post = Post.new(post_params)
+      @client = Twilio::REST::Client.new account_sid, auth_token
 
+      @client.account.messages.list.each do |message|
+        if current_user.phone_number == twilio_post_params['from']
+          @post = Post.new(post: twilio_post_params['body'])
 
-
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to :back, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+          if @post.save
+            @message = @client.account.messages.create({:to => current_user.phone_number,
+                                     :from => "+19177465165",
+                                     :body => "Thank you! We've added your post to the database."})
+          end
+        end
       end
-    end
 
-    account_sid = ENV['twilio_account_sid']
-    auth_token  = ENV['twilio_auth_token']
+      head :ok, content_type: "text/html"
+    else
+      @post = Post.new(post_params)
 
-    @client = Twilio::REST::Client.new account_sid, auth_token
-
-    @client.account.messages.list.each do |message|
-      if message.body['from'] == current_user.phone_number
-        @post = Post.new(message.body["body"])
+      respond_to do |format|
         if @post.save
-          @message = @client.account.messages.create({:to => current_user.phone_number,
-                                   :from => "+19177465165",
-                                   :body => "Thank you! We've added your post to the database."})
+          format.html { redirect_to :back, notice: 'Post was successfully created.' }
+          format.json { render :show, status: :created, location: @post }
+        else
+          format.html { render :new }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
         end
       end
     end
+
   end
 
   # PATCH/PUT /posts/1
@@ -91,5 +92,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:user_id, :post)
+    end
+
+    def twilio_post_params
+      params.permit(:body, :from)
     end
 end
