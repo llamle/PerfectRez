@@ -40,7 +40,7 @@ class PostsController < ApplicationController
           auth_token  = ENV['twilio_auth_token']
 
           @client = Twilio::REST::Client.new account_sid, auth_token
-          @message = @client.account.messages.create({:to => current_user.phone_number,
+          @message = @client.account.messages.create({:to => @user.phone_number,
                                    :from => "+19177465165",
                                    :body => "Thank you! We've added your post to the database."})
         end
