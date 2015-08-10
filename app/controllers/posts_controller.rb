@@ -29,11 +29,11 @@ class PostsController < ApplicationController
   def create
     puts params.keys
 
-    if params['from']
-      @user = User.find_by(phone_number: twilio_post_params['from'])
+    if params['From']
+      @user = User.find_by(phone_number: twilio_post_params['From'])
 
       if @user
-        @post = @user.posts.new(post: twilio_post_params['body'])
+        @post = @user.posts.new(post: twilio_post_params['Body'])
 
         if @post.save
           account_sid = ENV['twilio_account_sid']
@@ -104,6 +104,6 @@ class PostsController < ApplicationController
     end
 
     def twilio_post_params
-      params.permit(:body, :from)
+      params.permit(:Body, :From)
     end
 end
