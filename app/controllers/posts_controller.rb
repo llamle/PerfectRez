@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    puts params['from']
+    puts params.keys
 
     if params['from']
       @user = User.find_by(phone_number: twilio_post_params['from'])
