@@ -19,11 +19,13 @@ The database used is PostgreSQL.
 ### APIs Used
 
 Twilio for sending and receiving SMS messages.
+
 Sendgrid for sending and receiving email messages.  (feature currently offline pending resolution to account fraud)
 
 ### Ruby Gems Used
 
 Public:
+
 'bcrypt' for password encryption.
 
 'annotate' for annotating Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema.
@@ -43,7 +45,9 @@ Public:
 'twilio-ruby' to send and receive sms messages with my app.
 
 Development:
+
 'dotenv-rails' for loading .env files into ENV in development
+
 'rails-footnotes' for displaying footnotes in the application for easy debugging, such as sessions, request parameters, cookies, filter chain, routes, queries, etc.
 
 ## Time frame
@@ -51,6 +55,9 @@ Development:
 ### This application was built over the course of 5 days.
 
 The first day was planning the database and wireframing.
+
 The second day was setting up the database and getting the Rails Models, Views, and Controllers to play nice with one another.
+
 The third and fourth day was getting the site built and functional and doing styling.
+
 The fifth day was adding Sendgrid and Twilio APIs and getting them to work.
