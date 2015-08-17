@@ -25,13 +25,21 @@ Sendgrid for sending and receiving email messages.  (feature currently offline p
 
 Public:
 'bcrypt' for password encryption.
+
 'annotate' for annotating Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema.
+
 'materialize-sass' for styling the SASS and CSS.
+
 'font-awesome-sass' for scalable social media icons.
+
 'modernizer-rails' for detecting HTML5 and CSS3 features in the user’s browser.
+
 'angularjs-rails' to incorporate angular for use in search.
+
 'figaro' to safely store API keys and login credentials in an ENV file.
+
 'griddler-sendgrid' to receive emails in my app.
+
 'twilio-ruby' to send and receive sms messages with my app.
 
 Development:
